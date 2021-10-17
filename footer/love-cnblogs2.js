@@ -1,22 +1,8 @@
-function isMobile() { var userAgentInfo = navigator.userAgent; var mobileAgents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"]; var mobile_flag = false; for (var v = 0; v < mobileAgents.length; v++) { if (userAgentInfo.indexOf(mobileAgents[v]) > 0) { mobile_flag = true; break } } var screen_width = window.screen.width; var screen_height = window.screen.height; if (screen_width < 500 && screen_height < 800) { mobile_flag = true } return mobile_flag }
-var mobile_flag = isMobile();
-var blogTitle = $("#blogTitle").html();
-$("#blogTitle").html("<div class='vertical'>" + blogTitle + "</div>");
-
 function light_white() {
     $("#reading").remove();
     $("#darkly").remove();
     $("#reading").remove();
     $("#darkly").remove();
-    $("#fish_script").remove();
-    $("#jsi-flying-fish-container").html("");
-    if (mobile_flag) { } else {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.id = "fish_type";
-        script.src = "https://blog-static.cnblogs.com/files/miluluyo/fish.js";
-        document.body.appendChild(script)
-    }
 }
 
 function furvous() {
@@ -26,15 +12,7 @@ function furvous() {
     link.id = "darkly";
     link.href = "https://blog-static.cnblogs.com/files/miluluyo/darkly.css";
     document.body.appendChild(link);
-    $("#fish_script").remove();
-    if (mobile_flag) { } else {
-        $("#jsi-flying-fish-container").html("");
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.id = "fish_type";
-        script.src = "https://blog-static.cnblogs.com/files/miluluyo/fish2.js";
-        document.body.appendChild(script)
-    }
+
 }
 
 function reading() {
@@ -44,15 +22,6 @@ function reading() {
     link.id = "reading";
     link.href = "https://blog-static.cnblogs.com/files/miluluyo/reading.css";
     document.body.appendChild(link);
-    $("#fish_script").remove();
-    $("#jsi-flying-fish-container").html("");
-    if (mobile_flag) { } else {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.id = "fish_type";
-        script.src = "https://blog-static.cnblogs.com/files/miluluyo/fish3.js";
-        document.body.appendChild(script)
-    }
 }
 var skins = localStorage.getItem("skin");
 if (skins == null || skins == undefined) { light_white() } else { if (skins == "light_white") { light_white() } else { if (skins == "furvous") { furvous() } else { if (skins == "reading") { reading() } } } }
@@ -148,9 +117,6 @@ function allpage(c) {
         }
     }
     $("#navList").html(custom);
-    if (mobile_flag) { } else {
-        $("#footer").before('<div id="jsi-flying-fish-container" class="container"></div>')
-    }
     var le = $(".postTitle2").length;
     for (var i = 0; i < le; i++) {
         var num = Math.floor(Math.random() * c.cuteicon.length);
